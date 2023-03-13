@@ -66,3 +66,11 @@ build/
 *.ipr
 *.iws
 .idea/
+
+linux/
+macos/
+web/
+windows/
+.metadata
+analysis_options.yaml
+dice_app.iml
