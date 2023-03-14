@@ -5,7 +5,7 @@ void main() {
     home: Scaffold(
       backgroundColor: Colors.blueGrey[800],
       appBar: AppBar(
-        title: const Text('Dicee'),
+        title: const Center(child: Text('Dicee')),
         backgroundColor: Colors.blueGrey[900],
       ),
       body: DicePage(),
@@ -13,7 +13,16 @@ void main() {
   ));
 }
 
-class DicePage extends StatelessWidget {
+class DicePage extends StatefulWidget {
+  const DicePage({Key? key}) : super(key: key);
+
+  @override
+  State<DicePage> createState() => _DicePageState();
+}
+
+class _DicePageState extends State<DicePage> {
+  int leftDiceNumber = 1;
+
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -22,9 +31,11 @@ class DicePage extends StatelessWidget {
           Expanded(
             child: TextButton(
               onPressed: () {
-                print('Left button got pressed.');
+                setState(() {
+                  leftDiceNumber = 5;
+                });
               },
-              child: Image.asset('images/dice1.png'),
+              child: Image.asset('images/dice$leftDiceNumber.png'),
             ),
           ),
           Expanded(
